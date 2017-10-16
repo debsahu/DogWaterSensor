@@ -8,6 +8,6 @@ Things needed:
 3. ESP8266 12E
 4. Rain Water Level Sensor
 
-Use Arduino IDE to upload code on ESP8266 by grounding GPIO0 with a 10K resistor.
+Use Arduino IDE to upload code on ESP8266 by connecting GPIO0 to Ground.
 
 This sensor connects to MQTT and Home Assistant (https://home-assistant.io/). See dogsensor.yaml for adding this to HA. Assumes that one has set up various notification sensors (https://home-assistant.io/components/#notifications) available in HA.
