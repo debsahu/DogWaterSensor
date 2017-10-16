@@ -4,7 +4,7 @@ The STL files are posted here as well as https://www.thingiverse.com/thing:25882
 
 Things needed:
 1. 3D Printed Case
-2. 1x 18650
+2. 18650 Battery
 3. ESP8266 12E
 4. Rain Water Level Sensor
 
