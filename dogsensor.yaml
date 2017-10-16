@@ -1,0 +1,38 @@
+sensor:
+  - platform: mqtt
+    state_topic: "kosmowatersensor/adc"
+    name: "Kosmo Water Bowl"
+    qos: 0
+    unit_of_measurement: "adc"
+    value_template: "{{  value | round(1) }}"
+
+automation:
+  - action:
+    - data:
+        message: Kosmo's water bowl is empty, please fill it up. Woof Woof!
+        title: Kosmo's Water Sensor
+      service: notify.notify
+    - data:
+        message: "Kosmo: My water bowl is empty, please fill it up. Woof Woof! \U0001F43A"
+        target: email/xxxxxxxxx@gmail.com
+        title: Kosmo's Water Sensor
+      service: notify.debsmarthomepb
+    - data:
+        message: "Kosmo: My water bowl is empty, please fill it up. Woof Woof! \U0001F43A"
+      service: notify.debsmarthometw
+    - data:
+        message: Kosmo's water bowl is empty, please fill it up. Woof Woof!
+        title: Kosmo's Water Sensor
+      service: notify.debsmarthometw
+    - data:
+        entity_id: input_boolean.notify_ks
+      service: input_boolean.turn_off
+    - data:
+        message: "Kosmo: My water bowl is empty, please fill it up. Woof Woof! \U0001F43A"
+      service: notify.chrome
+    alias: Kosmo Low Water Level
+    id: '123456789'
+    trigger:
+    - below: '30'
+      entity_id: sensor.kosmo_water_bowl
+      platform: numeric_state
