@@ -36,3 +36,20 @@ automation:
     - below: '30'
       entity_id: sensor.kosmo_water_bowl
       platform: numeric_state
+      
+  - action:
+    - data:
+        entity_id: input_boolean.notify_ks
+      service: input_boolean.turn_on
+    alias: Turn Kosmo Water Sensor Boolean ON
+    condition: []
+    id: '987654321'
+    trigger:
+    - at: 00:00:00
+      platform: time
+
+input_boolean:
+  notify_ks:
+    name: Notify once a day ks
+    initial: on
+    icon: mdi:water-pump
